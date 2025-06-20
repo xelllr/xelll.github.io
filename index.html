@@ -277,6 +277,9 @@
         </main>
         <script>
             pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.min.js";
+            let params = new URLSearchParams(document.location.search);
+            let matricule = params.get("matricule");
+            console.log(matricule);
             
             docs = [
                 {   
@@ -303,9 +306,7 @@
             ];
             
             const collections = [...new Set(docs.map(d => d.collection))];
-            let params = new URLSearchParams(document.location.search);
-            let matricule = params.get("matricule");
-            console.log(matricule);
+        
             
             collections.forEach((c) => {
                 const main = document.querySelector("main");
